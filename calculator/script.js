@@ -1913,11 +1913,11 @@ function drawGraphic() {
     q = d3.queue()
 
     inflation_data.forEach(function(item) {
-      q.defer(d3.json, "https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/" + item.inflation_cdid + "/data")
-      q.defer(d3.json, "https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/" + item.weight_cdid + "/data")
+      q.defer(d3.json, `https://interactive.guim.co.uk/2022/08/23/ons-inflation-calculator/data/inflation-${item.inflation_cdid}.json`)
+      q.defer(d3.json, `https://interactive.guim.co.uk/2022/08/23/ons-inflation-calculator/data/weight-${item.weight_cdid}.json`)
     })
 
-    q.defer(d3.json, "https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/l55o/mm23/data")
+    q.defer(d3.json, "https://interactive.guim.co.uk/2022/08/23/ons-inflation-calculator/data/l550-mm23.json")
 
     //once all files are loaded, execute ready function
     q.awaitAll(ready);
